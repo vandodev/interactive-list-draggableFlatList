@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import DraggableFlatList , {ScaleDecorator, ShadowDecorator, OpacityDecorator, useOnCellActiveAnimation} from "react-native-draggable-flatlist"
 
+import Animated from 'react-native-reanimated'
+
 export default function App() {
   const ref = useRef(null)
   const [data, setData] = useState([
@@ -62,7 +64,9 @@ export default function App() {
               ]}
   
             >
-              <Text style={styles.text}>{item.label}</Text>
+              <Animated.View>
+                <Text style={styles.text}>{item.label}</Text>
+              </Animated.View>
             </TouchableOpacity>
           </ShadowDecorator>
         </OpacityDecorator>
